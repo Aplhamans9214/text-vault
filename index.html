@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text Vault</title>
+<style>
+    body {
+        background: #0f0f0f;
+        color: #00ff88;
+        font-family: Consolas, monospace;
+        margin: 0;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #00ffaa;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .box {
+        background: #111;
+        border: 1px solid #00ff88;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        position: relative;
+    }
+
+    pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+
+    button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #00ff88;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+
+    button:hover {
+        background: #00ffaa;
+    }
+</style>
+</head>
+<body>
+
+<h1>🔥 Text Vault</h1>
+
+<div class="container">
+
+    <!-- BLOCO 1 -->
+    <div class="box">
+        <button onclick="copyText(this)">Copiar</button>
+        <pre>
+  ▄██████▄
+ ██▀     ▀██
+ ██        ██
+ ██▄▄▄▄▄▄▄▄██
+        </pre>
+    </div>
+
+    <!-- BLOCO 2 -->
+    <div class="box">
+        <button onclick="copyText(this)">Copiar</button>
+        <pre>
+print("Hello World")
+        </pre>
+    </div>
+
+</div>
+
+<script>
+function copyText(button) {
+    const text = button.parentElement.querySelector("pre").innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        button.innerText = "Copiado!";
+        setTimeout(() => {
+            button.innerText = "Copiar";
+        }, 1500);
+    });
+}
+</script>
+
+</body>
+</html>
